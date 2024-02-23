@@ -1,17 +1,21 @@
 import MoneyFactory from "../src/moneyFactory";
 
-describe("Dollar", () => {
-    it("uses USD currency", () => {
+describe("Money", () => {
+    it("uses USD currency for dollar", () => {
         expect(MoneyFactory.dollar(1).currency).toEqual("USD");
+    });
+
+    it("uses FRC currency for franc", () => {
+        expect(MoneyFactory.franc(1).currency).toEqual("FRC");
     });
     
     describe("multiplication", () => {
-        it("returns a new value whose amount is the result of the multiplication", () => {
+        it("returns a new money whose amount is the result of the multiplication", () => {
             const five = MoneyFactory.dollar(5);
             expect(five.times(2)).toEqual(MoneyFactory.dollar(10));
         });
 
-        it("preservs original dollar", () => {
+        it("preservs original money", () => {
             const five = MoneyFactory.dollar(5);
             expect(five.times(2)).toEqual(MoneyFactory.dollar(10));
             expect(five.times(3)).toEqual(MoneyFactory.dollar(15));
