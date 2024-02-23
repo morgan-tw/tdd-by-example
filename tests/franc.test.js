@@ -2,6 +2,10 @@ import Franc from "../src/franc";
 import MoneyFactory from "../src/moneyFactory";
 
 describe("Franc", () => {
+    it("uses FRC currency", () => {
+        expect(MoneyFactory.franc(1).currency).toEqual("FRC");
+    });
+    
     describe("multiplication", () => {
         it("returns a new value whose amount is the result of the multiplication", () => {
             const five = MoneyFactory.franc(5);
