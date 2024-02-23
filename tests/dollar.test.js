@@ -2,18 +2,18 @@ import Dollar from "../src/dollar";
 
 describe("dollar", () => {
     describe("multiplication", () => {
-        it("multiplies its amount by the number", () => {
+        it("returns a new value whose amount is the result of the multiplication", () => {
             const five = new Dollar(5);
-            five.times(2);
-            expect(five.amount).toEqual(10);
+            const product = five.times(2);
+            expect(product.amount).toEqual(10);
         });
 
-        it("preserves original dollar", () => {
+        it("preservs original dollar", () => {
             const five = new Dollar(5);
-            five.times(2);
-            expect(five.amount).toEqual(10);
-            five.times(3);
-            expect(five.amount).toEqual(15);
+            let product = five.times(2);
+            expect(product.amount).toEqual(10);
+            product = five.times(3);
+            expect(product.amount).toEqual(15);
         });
     });
 });
