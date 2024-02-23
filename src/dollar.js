@@ -6,7 +6,7 @@ export default class Dollar {
     }
 
     equals(anotherAmount) {
-        return true;
+        return this.amount === anotherAmount.amount;
     }
 
     times(multiplier) {
