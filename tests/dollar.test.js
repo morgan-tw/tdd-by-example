@@ -1,6 +1,6 @@
 import Dollar from "../src/dollar";
 
-describe("dollar", () => {
+describe("Dollar", () => {
     describe("multiplication", () => {
         it("returns a new value whose amount is the result of the multiplication", () => {
             const five = new Dollar(5);
