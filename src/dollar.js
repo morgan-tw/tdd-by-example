@@ -1,7 +1,10 @@
-export default class Dollar {
+import Money from "./money";
+
+export default class Dollar extends Money {
     #amount;
 
     constructor(amount) {
+        super();
         this.#amount = amount;
     }
 
