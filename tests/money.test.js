@@ -1,4 +1,5 @@
 import MoneyFactory from "../src/moneyFactory";
+import Bank from "../src/bank";
 
 describe("Money", () => {
     it("uses USD currency for dollar", () => {

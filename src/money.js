@@ -1,18 +1,21 @@
-export default class Money {
+import Expression from "./expression";
+
+export default class Money extends Expression {
     amount;
     currency;
 
     constructor(amount, currency) {
+        super();
         this.amount = amount;
         this.currency = currency;
     }
 
-    equals(anotherAmount) {
-        return this.amount === anotherAmount.amount && this.currency === anotherAmount.currency;
+    equals(anotherMoney) {
+        return this.amount === anotherMoney.amount && this.currency === anotherMoney.currency;
     }
 
-    plus(anotherAmount) {
-        return new Money(this.amount + anotherAmount.amount, this.currency);
+    plus(anotherMoney) {
+        return new Money(this.amount + anotherMoney.amount, this.currency);
     }
 
     times(multiplier) {
