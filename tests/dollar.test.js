@@ -20,6 +20,10 @@ describe("dollar", () => {
     describe("are equal", () => {
         it("returns true when their amounts are equal", () => {
             expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy();
-        })
+        });
+
+        it("returns false when their amounts are different", () => {
+            expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy();
+        });
     });
 });
