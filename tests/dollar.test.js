@@ -1,4 +1,5 @@
 import Dollar from "../src/dollar";
+import Franc from "../src/franc";
 
 describe("Dollar", () => {
     describe("multiplication", () => {
@@ -21,6 +22,10 @@ describe("Dollar", () => {
 
         it("returns false when their amounts are different", () => {
             expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy();
+        });
+
+        it("returns false when compare with Franc", () => {
+            expect(new Dollar(5).equals(new Franc(5))).toBeFalsy();
         });
     });
 });

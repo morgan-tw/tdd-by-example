@@ -2,11 +2,7 @@ import Money from "./money";
 
 export default class Dollar extends Money {
     constructor(amount) {
-        super(amount);
-    }
-
-    equals(anotherAmount) {
-        return this.amount === anotherAmount.amount;
+        super(amount, "USD");
     }
 
     times(multiplier) {
