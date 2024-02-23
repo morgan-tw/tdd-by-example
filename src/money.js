@@ -4,4 +4,8 @@ export default class Money {
     constructor(amount) {
         this.amount = amount;
     }
+
+    equals(anotherAmount) {
+        return this.amount === anotherAmount.amount;
+    }
 }
