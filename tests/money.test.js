@@ -8,6 +8,17 @@ describe("Money", () => {
     it("uses FRC currency for franc", () => {
         expect(MoneyFactory.franc(1).currency).toEqual("FRC");
     });
+
+    describe("sum", () => {
+        it("returns an expression that can be reduced by the bank into a specific currency", () => {
+            const five = MoneyFactory.dollar(5);
+            const sum = five.plus(five);
+            const bank = new Bank();
+            const reduced = bank.reduce(sum, "USD");
+
+            expect(reduced).toEqual(MoneyFactory.dollar(10));
+        });
+    });
     
     describe("multiplication", () => {
         it("returns a new money whose amount is the result of the multiplication", () => {
