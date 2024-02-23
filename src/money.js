@@ -10,4 +10,8 @@ export default class Money {
     equals(anotherAmount) {
         return this.amount === anotherAmount.amount && this.currency === anotherAmount.currency;
     }
+
+    times(multiplier) {
+        return new Money(this.amount * multiplier, this.currency);
+    }
 }

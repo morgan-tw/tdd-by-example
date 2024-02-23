@@ -1,26 +1,31 @@
 import Franc from "../src/franc";
+import MoneyFactory from "../src/moneyFactory";
 
 describe("Franc", () => {
     describe("multiplication", () => {
         it("returns a new value whose amount is the result of the multiplication", () => {
-            const five = new Franc(5);
-            expect(five.times(2)).toEqual(new Franc(10));
+            const five = MoneyFactory.franc(5);
+            expect(five.times(2)).toEqual(MoneyFactory.franc(10));
         });
 
         it("preservs original franc", () => {
-            const five = new Franc(5);
-            expect(five.times(2)).toEqual(new Franc(10));
-            expect(five.times(3)).toEqual(new Franc(15));
+            const five = MoneyFactory.franc(5);
+            expect(five.times(2)).toEqual(MoneyFactory.franc(10));
+            expect(five.times(3)).toEqual(MoneyFactory.franc(15));
         });
     });
 
     describe("are equal", () => {
         it("returns true when their amounts are equal", () => {
-            expect(new Franc(5).equals(new Franc(5))).toBeTruthy();
+            expect(MoneyFactory.franc(5).equals(MoneyFactory.franc(5))).toBeTruthy();
         });
 
         it("returns false when their amounts are different", () => {
-            expect(new Franc(5).equals(new Franc(6))).toBeFalsy();
+            expect(MoneyFactory.franc(5).equals(MoneyFactory.franc(6))).toBeFalsy();
+        });
+
+        it("returns false when compare with Dollaer", () => {
+            expect(MoneyFactory.franc(5).equals(MoneyFactory.dollar(5))).toBeFalsy();
         });
     });
 });
