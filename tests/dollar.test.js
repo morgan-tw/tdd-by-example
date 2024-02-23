@@ -1,4 +1,3 @@
-import Franc from "../src/franc";
 import MoneyFactory from "../src/moneyFactory";
 
 describe("Dollar", () => {

@@ -1,12 +1,11 @@
-import Dollar from "./dollar";
-import Franc from "./franc";
+import Money from "./money";
 
 export default class MoneyFactory {
     static dollar(amount) {
-        return new Dollar(amount);
+        return new Money(amount, "USD");
     }
 
     static franc(amount){
-        return new Franc(amount);
+        return new Money(amount, "FRC");
     }
 }
