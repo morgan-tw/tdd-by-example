@@ -1,10 +1,12 @@
+import Expression from "./expression";
 import Sum from "./sum";
 
-export default class Money {
+export default class Money extends Expression {
     amount;
     currency;
 
     constructor(amount, currency) {
+        super();
         this.amount = amount;
         this.currency = currency;
     }
@@ -19,5 +21,9 @@ export default class Money {
 
     times(multiplier) {
         return new Money(this.amount * multiplier, this.currency);
+    }
+
+    reduce(to) {
+        return this;
     }
 }

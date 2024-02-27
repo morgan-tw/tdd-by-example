@@ -4,7 +4,7 @@ export default class Bank {
     rates = {};
 
     reduce(expression, to) {
-        return expression.reduce(this, to);
+        return expression.reduce(to);
     }
 
     add(origin, destination, rate) {
