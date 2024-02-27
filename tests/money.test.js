@@ -25,6 +25,13 @@ describe("Money", () => {
             expect(result).toEqual(MoneyFactory.dollar(1));
         });
 
+        it("reduces a money in another currency", () => {
+            const bank = new Bank();
+            bank.addRate("CHF", "USD", 2);
+            const result = bank.reduce(MoneyFactory.franc(2), "USD");
+            expect(result).toEqual(MoneyFactory.dollar(1));
+        });
+
         it("returns an expression that can be reduced by the bank into a specific currency", () => {
             const five = MoneyFactory.dollar(5);
             const sum = five.plus(five);

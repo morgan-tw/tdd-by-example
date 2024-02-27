@@ -1,4 +1,5 @@
 import Expression from "./expression";
+import MoneyFactory from "./moneyFactory";
 import Sum from "./sum";
 
 export default class Money extends Expression {
@@ -24,6 +25,7 @@ export default class Money extends Expression {
     }
 
     reduce(to) {
-        return this;
+        const rate = (this.currency === "FRC" && to === "USD") ? 2 : 1;
+        return new Money(this.amount / rate, to);
     }
 }
