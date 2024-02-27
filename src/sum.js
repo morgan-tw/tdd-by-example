@@ -12,6 +12,6 @@ export default class Sum extends Expression {
     }
 
     reduce(bank, to) {
-        return new Money(bank.reducethis.augend.amount + this.addend.amount, to);
+        return new Money(this.augend.amount + this.addend.amount, to);
     }
 }

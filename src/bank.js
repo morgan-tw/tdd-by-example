@@ -4,8 +4,7 @@ export default class Bank {
     rates = {};
 
     reduce(expression, to) {
-        const sum = expression.augend.amount + expression.addend.amount;
-        return new Money(sum, to);;
+        return expression.reduce(this, to);
     }
 
     add(origin, destination, rate) {
