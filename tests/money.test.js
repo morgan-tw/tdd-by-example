@@ -1,5 +1,6 @@
 import MoneyFactory from "../src/moneyFactory";
 import Bank from "../src/bank";
+import Sum from "../src/sum";
 
 describe("Money", () => {
     it("uses USD currency for dollar", () => {
@@ -11,9 +12,18 @@ describe("Money", () => {
     });
 
     describe("sum", () => {
+        it("reduces same currency", () => {
+            const sum = new Sum(MoneyFactory.dollar(3), MoneyFactory.dollar(4));
+            const bank = new Bank();
+            const result = bank.reduce(sum, "USD");
+            expect(result).toEqual(MoneyFactory.dollar(7));
+        });
+
         it("returns an expression that can be reduced by the bank into a specific currency", () => {
             const five = MoneyFactory.dollar(5);
             const sum = five.plus(five);
+            expect(sum.augend).toEqual(five);
+            expect(sum.addend).toEqual(five);
             const bank = new Bank();
             const reduced = bank.reduce(sum, "USD");
 
